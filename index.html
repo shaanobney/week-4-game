@@ -1,22 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" href="assets/images/favicon.png">
-    <title>Seinfeld RPG</title>
-  </head>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Seinfeld RPG</title>    
+</head>
 
-  <body>
 
-  
+<body>
 
-  <script src="assets/javascript/game.js"></script>
+<div class="wrapper">
+    
+  <div>
+    <h1>Click to Choose Your Character</h1>
+    <div id="charSelect">
+      <!--   THIS IS THE DIV FOR CHARACTERS -->
+      <div id="elaine" class="selected" data-selected="false">
+        <h2>Elaine</h2>
+        <img src="assets/images/elaine.jpg">
+        <h3 id="elaineHp">HP: 80</h3>
+      </div>
+
+      <div id="george" class="selected" data-selected="false">
+        <h2>George</h2>
+        <img src="assets/images/george.jpg">
+        <h3 id="georgeHp">HP: 40</h3>
+      </div>
+
+      
+      <div id="jerry" class="selected" data-selected="false">
+        <h2>Jerry</h2>
+        <img src="assets/images/jerry.jpg">
+        <h3 id="jerryHP">HP: 120</h3>
+      </div>
+
+      <div id="kramer" class="selected" data-selected="false">
+        <h2>Kramer</h2>
+        <img src="assets/images/kramer.jpg">
+        <h3 id="kramerHp">HP: 300</h3>
+        </div>
+    </div>
+  </div>
+
+  <div>
+    <h1>Enemies Available to Vanquish</h1>
+    <div id="defenderSelect">
+      <!--   THIS IS THE AREA FOR ENEMIES -->
+    </div>
+  </div>
+
+  <div class="title">
+      <h1>Fight Section</h1>
+  </div>
+
+  <div class="yada">
+    <button id="attack" onclick="comparChar();">Yada Yada (ATTACK)</button>
+  </div>
+
+  <div>
+    <h1>Defender</h1>
+    <div id="defArea">
+      <!--   THIS IS THE AREA FOR THE ENEMY DEFENDER -->
+    </div>
+  </div>
+
+
+  <div>
+    <span id="charAttack">SOME TEXT</span>
+    <br>
+    <span id="defAttack">SOME MORE TEXT</span>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 
     
-    
-    
-  </body>
+</body>
+
 </html>
