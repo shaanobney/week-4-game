@@ -1,6 +1,0 @@
-$('#defenderSelect.#jerry').mousedown(function() {
-	//if location of div is true, send object property name to function charCreate(), otherwise don't do anything. 
-})
-
-
-

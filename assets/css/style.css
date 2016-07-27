@@ -1,5 +1,5 @@
 body {
-  background: url("../images/background.jpg") no-repeat center fixed;
+  background: url("../images/background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -39,116 +39,82 @@ button:hover {
   color: black;
 }
 
-div {
-	margin-bottom: 5px 0px 5px 0px;
-	margin-left: 25px;
+h3 {
+	text-transform: uppercase;
+	text-rendering: optimizeLegibility;
+	text-shadow: 2px 2px aqua;
+	margin: 5px 50px 5px 50px;
 }
 
-h1 {
+header {
+	text-align: center;
+	font-size: 50px;
+	color: red;
+}
+
+img{
+	padding-top: 5px;
+}
+
+#charselect {
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
   text-shadow: 2px 2px aqua;
-  margin: 5px 0px 5px 0px;
+  margin: 5px 0px 5px 70px;
 }
 
-h2 {
-  font-size: 10px;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  padding: 6px;
-  color: black;
-
+#charSel {
+	margin-left: 70px;
 }
 
-h3 {
-	font-size: 10px;
-	position: absolute;
-	text-align: center;
-	width: 100%;
-	padding: 2px;
-  color: black;
-
+#fight {
+	display: -webkit-box;
 }
 
-img {
-	padding-top: 20px;
+#opponent {
+  margin-left: 150px;
 }
 
-span {
-	font-size: 15px;
+#ticker {
+  color: pink;
+  background-color: green;
+}
+
+.char {
+	height: 130px;
+    width: 150px;
+    border-radius: 5px;
+    background-color: #69D2E7;
+    text-align: center;
+    color: black;
+    font-family: Verdana, Arial, Sans-Serif;
+    margin: 3px;
+    font-size: 10px;
+}
+
+.characters {
+	display: inline-flex;
+	margin-left: 70px;
+}
+
+.selection {
 	color: red;
-  text-shadow: 1px 1px black;
+	margin-left: 50px;
 }
 
-.wrappper {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+.buttons{
+  margin: 20 0 20px 70px;
 }
 
-.title {
-	margin-bottom: 0px;
+.score {
+  clear: both;
+  width: 500px;
+  color: black;
+  text-shadow: 2px 2px red;
+  margin-left: 240px;
 }
 
 .yada {
-	margin-bottom: 0px;
-
+	margin-left: 120px;
 }
 
-#charSelect {
-	display: inline-flex;
-
-}
-
-#defenderSelect {
-  display: inline-flex;
-
-}
-
-#elaine {
-	height: 130px;
-    width: 150px;
-    border-radius: 5px;
-    background-color: #69D2E7;
-    text-align: center;
-    font-family: Verdana, Arial, Sans-Serif;
-    margin: 3px;
-    position: relative;
-}
-
-#george {
-	height: 130px;
-    width: 150px;
-    border-radius: 5px;
-    background-color: #69D2E7;
-    text-align: center;
-    color: #FFFFFF;
-    font-family: Verdana, Arial, Sans-Serif;
-    margin: 3px;
-    position: relative;
-}
-
-#jerry {
-	height: 130px;
-    width: 150px;
-    border-radius: 5px;
-    background-color: #69D2E7;
-    text-align: center;
-    color: #FFFFFF;
-    font-family: Verdana, Arial, Sans-Serif;
-    margin: 3px;
-    position: relative;
-}
-
-#kramer {
-	height: 130px;
-    width: 150px;
-    border-radius: 5px;
-    background-color: #69D2E7;
-    text-align: center;
-    color: #FFFFFF;
-    font-family: Verdana, Arial, Sans-Serif;
-    margin: 3px;
-    position: relative;
-}
