@@ -5,7 +5,6 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: sans-serif;
-  color: gray;
   height: 100%;
   font-size: 30px;
   margin-top: 2%;
@@ -61,7 +60,7 @@ img{
   text-rendering: optimizeLegibility;
   font-family: 'Montserrat', sans-serif;
   text-shadow: 1px 1px aqua;
-  margin: 5px 50px 5px 50px;
+  margin: 55px 50px 5px 50px;
 }
 
 #charSel {
