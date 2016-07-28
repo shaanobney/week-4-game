@@ -97,7 +97,7 @@ $(document).ready(function() {
     })
 
  //FIGHT FUNCTION. OPPONENET ACOUNTER IS SUBTRACTED FROM CHARACTER'S HP, CHAR ATK SUBTRACTED FROM ENEMY HP. CHAR'S ATTACK POWER
- //AT A RANDOM INTERVAL BETWEEN 1 AND 6 ON EACH SUBSEQUENTLY SUCCESSFUL ATTACK. WHEN ENEMY HP RUNS OUT, YOU WIN ROUND. YOUR HP IS ZERO, YOU LOSE.
+ //AT A RANDOM INTERVAL BETWEEN 4 AND 7 ON EACH SUBSEQUENTLY SUCCESSFUL ATTACK. WHEN ENEMY HP RUNS OUT, YOU WIN ROUND. YOUR HP IS ZERO, YOU LOSE.
     $('#attackbutton').on('click', function(attack) {
         characters[charSel].hitPoints = characters[charSel].hitPoints - characters[opponent].acounter;
         characters[opponent].hitPoints -= characters[charSel].attack;
