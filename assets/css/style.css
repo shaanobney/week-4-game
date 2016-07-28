@@ -16,8 +16,8 @@ button {
   -webkit-border-radius: 4px;
   border-radius: 4px;
   -khtml-border-radius: 4px;
-  background: gray;
-  color: aqua;
+  background: #fcd720;
+  color: #e30922;
   border: solid 1px #fff;
   text-decoration: none;
   cursor: pointer;
@@ -42,42 +42,62 @@ button:hover {
 h3 {
 	text-transform: uppercase;
 	text-rendering: optimizeLegibility;
-	text-shadow: 2px 2px aqua;
-	margin: 5px 50px 5px 50px;
+  font-family: 'Montserrat', sans-serif;
+/*	text-shadow: 2px 2px aqua;
+	margin: 5px 50px 5px 50px;*/
 }
 
-header {
-	text-align: center;
-	font-size: 50px;
-	color: red;
+h4 {
+  font-family: 'Prompt', sans-serif;
 }
 
 img{
-	padding-top: 5px;
+	padding-top: 10px;
 }
 
 #charselect {
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
+  font-family: 'Montserrat', sans-serif;
   text-shadow: 2px 2px aqua;
-  margin: 5px 0px 5px 70px;
+  margin: 5px 50px 5px 50px;
 }
 
 #charSel {
 	margin-left: 70px;
+  font-family: 'Bungee Shade', cursive;
 }
 
 #fight {
 	display: -webkit-box;
+  margin-top: 20px;
+}
+
+#myHp {
+  font-family: 'Orbitron', sans-serif;
+  color: green;
+}
+
+#opponentHp {
+  color: red;
 }
 
 #opponent {
   margin-left: 150px;
 }
 
+#sticker {
+  color: yellow;
+  text-shadow: 2px 2px red;
+  margin: 0px 50px 0px 50px;
+  font-size: 25px;
+}
+
 #ticker {
-  color: pink;
-  background-color: green;
+  color: yellow;
+  text-shadow: 2px 2px red;
+  margin: 0px 50px 0px 50px;
+  font-size: 25px;
 }
 
 .char {
@@ -107,14 +127,15 @@ img{
 }
 
 .score {
-  clear: both;
-  width: 500px;
-  color: black;
-  text-shadow: 2px 2px red;
-  margin-left: 240px;
+  margin-left: 700px;
+  font-family: 'Slabo 27px', serif;
+  position: absolute;
+  bottom: 75px;
 }
 
 .yada {
-	margin-left: 120px;
+	margin-left: 195px;
+  position: absolute;
+  bottom: 75px;
 }
 

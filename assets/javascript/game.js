@@ -1,54 +1,55 @@
 $(document).ready(function() {
 
-//OBJECTS. Properties assigned to hitpoints, attack power, base to add back to attack.
+//OBJECTS. CHARACTER BANK WITH COMBAT STATS.
     var characters = {
         elaine: {
+        	name: 'Elaine',
             hp: 200,
             attack: 10,
-            name: 'Elaine',
             imgSrc: "assets/images/elaine.jpg",
             audio: elaineWav,
-
-        },
+		 },
         george: {
+        	name: 'George',
             hp: 100,
             attack: 8,
-            name: 'George',
             imgSrc: "assets/images/george.jpg",
             audio: georgeWav,
         },
         jerry: {
+        	name: 'Seinfeld',
             hp: 150,
             attack: 12,
-            name: ' Jerry ',
             imgSrc: "assets/images/jerry.jpg",
             audio: jerryWav,
         },
         kramer: {
+        	name: 'Kramer',
             hp: 300,
             attack: 2,
-            name: 'Kramer',
             imgSrc: "assets/images/kramer.jpg",
             audio: kramerWav,
         }
     };
+
 //VARIABLES.
     var charElement = '';
+    var charSel = 0;
     var opponent = '';
+    var opponentHp = '';
     var myCharToggle = false;
     var opponentToggle = false;
     var charSel = 0;
     var myHp = 0;
     var myWav = "";
-    var opponentHp = '';
     var enemsBeaten = 0;
     var elaineWav = new Audio('dingo.wav');
     var georgeWav = new Audio('ah_hah.wav');
     var jerryWav = new Audio('dream_hamburger.wav');
     var kramerWav = new Audio('assman.wav');
 
+    // CREATES CHARACTERS.
     function setCond() {
-        // CREATES CHARACTERS, LOOPS THROUGH AND SPITS OUT BASED ON OBJECT PROPS.
         for (var property in characters) {
             var charStat = characters[property];
             $('.characters').append("<div class='char' id='" + property + "'>" + charStat.name + "<img src='" + charStat.imgSrc + "'></div>");
@@ -56,11 +57,11 @@ $(document).ready(function() {
     }
 
     setCond();
-
+    // STOPS RETRIGGERING OF CHARACTER DIVS, DECIDES BETWEEN CHARACTER AND OPPONENT.
     $('body').on('click', '.char', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        charElement = $(this).attr('id')
+        charElement = $(this).attr('id');
 
         if (opponentToggle === false) {
             charSel = charElement;
@@ -77,13 +78,14 @@ $(document).ready(function() {
                 $("#opponent").append($('#' + opponent));
                 opponentHp = characters[opponent].hp;
                 $('#opponentHpValue').text(characters[opponent].hp);
+                $('#ticker').empty();
+                $('#sticker').empty();
             }
         }
     })
 
- //Fight function. Compares the attack power of each to the hit points of the other. if attack is greater than HP
-//you're dead. Otherwise it subtracts attack power from hitpoints and updates running total for each char, and outputs msg.
-
+ //FIGHT FUNCTION. UPDATES HP BASED ON AP, ALSO ADDS TO ATTACK POWER ON SUCCESSFUL ATTACK. IF YOU DIE BEFORE
+ //DEFEATING ALL ENEMIES YOU DIE, OTHERWISE YOU KEEP CHOOSING AND FIGHTING UNTIL NONE REMAIN.
     $('#attackbutton').on('click', function(attack) {
         characters[charSel].hp = characters[charSel].hp - characters[opponent].attack;
         characters[opponent].hp -= characters[charSel].attack;
@@ -100,24 +102,24 @@ $(document).ready(function() {
         $('#opponentHpValue').text(opponentCharHp);
 
         if (characters[charSel].hp <= 0) {
-            document.getElementById('ticker').innerHTML = "Yada Yada... you died";
+            document.getElementById('ticker').innerHTML = "Yada Yada Yada... You Died";
         }
 
         if (characters[opponent].hp <= 0) {
             charElement = '';
             $('#opponent').empty();
-            document.getElementById('ticker').innerHTML = "Yada Yada You win the battle";
+            document.getElementById('ticker').innerHTML = "You Won This Round";
             opponentHp = '';
             opponent = '';
             enemsBeaten++;
             
         if (enemsBeaten < 3) {
-                document.getElementById('ticker').innerHTML = "Pick another clown";
+                document.getElementById('sticker').innerHTML = "Pick another Schmohawk";
             };
         }
 
         if (enemsBeaten === 3) {
-            document.getElementById('ticker').innerHTML ="You Win";
+            document.getElementById('ticker').innerHTML ="It's a Festivus Miracle! (You Win)";
         }
 
     })
@@ -141,7 +143,7 @@ $(document).ready(function() {
         jerry: {
             hp: 150,
             attack: 12,
-            name: ' Jerry ',
+            name: 'Jerome',
             imgSrc: "assets/images/jerry.jpg",
             audio: jerryWav,
         },
