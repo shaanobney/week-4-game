@@ -70,7 +70,7 @@ $(document).ready(function() {
         charElement = $(this).attr('id');
         $('charselect').css('color', 'red');
         document.getElementById('charselect').innerHTML = "CLICK BELOW TO CHOOSE VILLAIN";
-        $("#charselect").css("color", "red");
+        $("#charselect").css({"color": "red", "text-shadow": "1px 1px black"});
 
         if (opponentToggle === false) {
             charSel = charElement;
@@ -186,7 +186,7 @@ $(document).ready(function() {
         $('#opponentHpValue').empty();
         $('#ticker').empty();
         $('#charselect').html("CLICK BELOW TO CHOOSE HERO");
-        $("#charselect").css("color", "black");
+        $("#charselect").css({"color": "black", "text-shadow": "1px 1px aqua"});
         $("#attackbutton").prop("disabled" , false);
         setCond();
     }
