@@ -11,6 +11,7 @@ $(document).ready(function() {
         	name: 'Elaine',
             hp: 200,
             attack: 10,
+            acounter: 6,
             imgSrc: "assets/images/elaine.jpg",
             audio: elaineWav,
 		 },
@@ -18,6 +19,7 @@ $(document).ready(function() {
         	name: 'George',
             hp: 100,
             attack: 8,
+            acounter: 5,
             imgSrc: "assets/images/george.jpg",
             audio: georgeWav,
         },
@@ -25,13 +27,15 @@ $(document).ready(function() {
         	name: 'Seinfeld',
             hp: 150,
             attack: 12,
+            acounter: 8,
             imgSrc: "assets/images/jerry.jpg",
             audio: jerryWav,
         },
         kramer: {
         	name: 'Kramer',
-            hp: 300,
-            attack: 2,
+            hp: 200,
+            attack: 5,
+            acounter: 7,
             imgSrc: "assets/images/kramer.jpg",
             audio: kramerWav,
         }
@@ -57,7 +61,7 @@ $(document).ready(function() {
     function setCond() {
         for (var property in characters) {
             var charStat = characters[property];
-            $('.characters').append("<div class='char' id='" + property + "'>" + charStat.name + "<img src='" + charStat.imgSrc + "'></div>");
+            $('.characters').append("<div class='char' id='" + property + "'>" + charStat.name + "<img src='" + charStat.imgSrc +"'></div>");
 	    }
     }
 
@@ -92,7 +96,7 @@ $(document).ready(function() {
  //FIGHT FUNCTION. UPDATES HP BASED ON AP, ALSO ADDS TO ATTACK POWER ON SUCCESSFUL ATTACK. IF YOU DIE BEFORE
  //DEFEATING ALL ENEMIES YOU DIE, OTHERWISE YOU KEEP CHOOSING AND FIGHTING UNTIL NONE REMAIN.
     $('#attackbutton').on('click', function(attack) {
-        characters[charSel].hp = characters[charSel].hp - characters[opponent].attack;
+        characters[charSel].hp = characters[charSel].hp - characters[opponent].acounter;
         characters[opponent].hp -= characters[charSel].attack;
         characters[charSel].attack += 3;
         var myCharHp = characters[charSel].hp;
@@ -132,30 +136,34 @@ $(document).ready(function() {
     function reset() {
         characters = {
         elaine: {
+            name: 'Elaine',
             hp: 200,
             attack: 10,
-            name: 'Elaine',
+            acounter: 7,
             imgSrc: "assets/images/elaine.jpg",
             audio: elaineWav,
-        },
+         },
         george: {
-            hp: 100,
-            attack: 15,
             name: 'George',
+            hp: 100,
+            attack: 8,
+            acounter: 5,
             imgSrc: "assets/images/george.jpg",
             audio: georgeWav,
         },
         jerry: {
+            name: 'Seinfeld',
             hp: 150,
             attack: 12,
-            name: 'Jerome',
+            acounter: 8,
             imgSrc: "assets/images/jerry.jpg",
             audio: jerryWav,
         },
         kramer: {
-            hp: 300,
-            attack: 2,
             name: 'Kramer',
+            hp: 200,
+            attack: 5,
+            acounter: 7,
             imgSrc: "assets/images/kramer.jpg",
             audio: kramerWav,
             }
