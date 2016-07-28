@@ -8,34 +8,34 @@ $(document).ready(function() {
 
     var characters = {
         elaine: {
-        	name: 'Elaine',
-            hp: 200,
+            name: 'Elaine',
+            hp: 120,
             attack: 10,
-            acounter: 6,
+            acounter: 10,
             imgSrc: "assets/images/elaine.jpg",
             audio: elaineWav,
-		 },
+         },
         george: {
-        	name: 'George',
-            hp: 100,
+            name: 'George',
+            hp: 130,
             attack: 8,
-            acounter: 5,
+            acounter:  9,
             imgSrc: "assets/images/george.jpg",
             audio: georgeWav,
         },
         jerry: {
-        	name: 'Seinfeld',
-            hp: 150,
-            attack: 12,
-            acounter: 8,
+            name: 'Seinfeld',
+            hp: 110,
+            attack: 7,
+            acounter: 11,
             imgSrc: "assets/images/jerry.jpg",
             audio: jerryWav,
         },
         kramer: {
-        	name: 'Kramer',
-            hp: 200,
-            attack: 5,
-            acounter: 7,
+            name: 'Kramer',
+            hp: 140,
+            attack: 8,
+            acounter: 8,
             imgSrc: "assets/images/kramer.jpg",
             audio: kramerWav,
         }
@@ -93,18 +93,19 @@ $(document).ready(function() {
         }
     })
 
- //FIGHT FUNCTION. UPDATES HP BASED ON AP, ALSO ADDS TO ATTACK POWER ON SUCCESSFUL ATTACK. IF YOU DIE BEFORE
- //DEFEATING ALL ENEMIES YOU DIE, OTHERWISE YOU KEEP CHOOSING AND FIGHTING UNTIL NONE REMAIN.
+ //FIGHT FUNCTION. OPPONENET ACOUNTER IS SUBTRACTED FROM CHARACTER'S HP, CHAR ATK SUBTRACTED FROM ENEMY HP. CHAR'S ATTACK POWER
+ //AT A RANDOM INTERVAL BETWEEN 1 AND 6 ON EACH SUBSEQUENTLY SUCCESSFUL ATTACK. WHEN ENEMY HP RUNS OUT, YOU WIN ROUND. YOUR HP IS ZERO, YOU LOSE.
     $('#attackbutton').on('click', function(attack) {
         characters[charSel].hp = characters[charSel].hp - characters[opponent].acounter;
         characters[opponent].hp -= characters[charSel].attack;
-        characters[charSel].attack += 3;
+        characters[charSel].attack += (Math.floor(Math.random() * 5) + 2);
+;
         var myCharHp = characters[charSel].hp;
         var opponentCharHp = characters[opponent].hp;
-        if (myCharHp < 0) {
+        if (myCharHp <= 0) {
             myCharHp = 0;
         }
-        if (opponentCharHp < 0) {
+        if (opponentCharHp <= 0) {
             opponentCharHp = 0;
         }
         $('#myHpValue').text(myCharHp);
@@ -112,6 +113,8 @@ $(document).ready(function() {
 
         if (characters[charSel].hp <= 0) {
             document.getElementById('ticker').innerHTML = "Yada Yada Yada... You Died";
+            $("#attackbutton").prop("disabled" , true);
+            
         }
 
         if (characters[opponent].hp <= 0) {
@@ -132,38 +135,38 @@ $(document).ready(function() {
         }
 
     })
-    // Resets game to initial conditions, clears out values. 
+    // RESET CHARACTER STATS, ELEMENTS ON PAGE. 
     function reset() {
         characters = {
         elaine: {
             name: 'Elaine',
-            hp: 200,
-            attack: 10,
-            acounter: 7,
+            hp: 130,
+            attack: 12,
+            acounter: 13,
             imgSrc: "assets/images/elaine.jpg",
             audio: elaineWav,
          },
         george: {
             name: 'George',
-            hp: 100,
-            attack: 8,
-            acounter: 5,
+            hp: 120,
+            attack: 10,
+            acounter:  13,
             imgSrc: "assets/images/george.jpg",
             audio: georgeWav,
         },
         jerry: {
             name: 'Seinfeld',
-            hp: 150,
-            attack: 12,
-            acounter: 8,
+            hp: 120,
+            attack: 8,
+            acounter: 11,
             imgSrc: "assets/images/jerry.jpg",
             audio: jerryWav,
         },
         kramer: {
             name: 'Kramer',
-            hp: 200,
+            hp: 180,
             attack: 5,
-            acounter: 7,
+            acounter: 9,
             imgSrc: "assets/images/kramer.jpg",
             audio: kramerWav,
             }
@@ -180,6 +183,7 @@ $(document).ready(function() {
         $('#myHpValue').empty();
         $('#opponentHpValue').empty();
         $('#ticker').empty();
+        $("#attackbutton").prop("disabled" , false);
         setCond();
     }
 
