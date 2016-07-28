@@ -8,7 +8,7 @@ $(document).ready(function() {
             hitPoints: 120,
             attack: 10,
             acounter: 10,
-            imgSrc: "assets/images/elaine.jpg",
+            charPort: "assets/images/elaine.jpg",
             clip: new Audio('dingo.wav'),
          },
         george: {
@@ -16,7 +16,7 @@ $(document).ready(function() {
             hitPoints: 130,
             attack: 8,
             acounter:  9,
-            imgSrc: "assets/images/george.jpg",
+            charPort: "assets/images/george.jpg",
             clip: new Audio('ah_hah.wav'),
         },
         jerry: {
@@ -24,7 +24,7 @@ $(document).ready(function() {
             hitPoints: 110,
             attack: 7,
             acounter: 11,
-            imgSrc: "assets/images/jerry.jpg",
+            charPort: "assets/images/jerry.jpg",
             clip: new Audio('dream_hamburger.wav'),
         },
         kramer: {
@@ -32,7 +32,7 @@ $(document).ready(function() {
             hitPoints: 140,
             attack: 8,
             acounter: 8,
-            imgSrc: "assets/images/kramer.jpg",
+            charPort: "assets/images/kramer.jpg",
             clip: new Audio('assman.wav'),
         }
     };
@@ -43,10 +43,8 @@ $(document).ready(function() {
     var charPick = 0;
     var opponent = '';
     var opponentHp = '';
-    var myCharToggle = false;
-    var opponentToggle = false;
-    var myHp = 0;
     var myWav = "";
+    var myHp = 0;
     var enemsBeaten = 0;
     var elaineWav = new Audio('dingo.wav');
     var georgeWav = new Audio('ah_hah.wav');
@@ -54,12 +52,14 @@ $(document).ready(function() {
     var kramerWav = new Audio('assman.wav');
     var themeFeld = new Audio('seinfeld.mp3');
     var lostFeld = new Audio('lostfeld.wav');
+    var myCharToggle = false;
+    var opponentToggle = false;
 
     // CREATES CHARACTERS.
     function setCond() {
         for (var property in characters) {
             var charStat = characters[property];
-            $('.characters').append("<div class='char' id='" + property + "'>" + charStat.name + "<img src='" + charStat.imgSrc +"'></div>");
+            $('.characters').append("<div class='char' id='" + property + "'>" + charStat.name + "<img src='" + charStat.charPort +"'></div>");
 	    }
     }
 
@@ -148,7 +148,7 @@ $(document).ready(function() {
             hitPoints: 120,
             attack: 10,
             acounter: 10,
-            imgSrc: "assets/images/elaine.jpg",
+            charPort: "assets/images/elaine.jpg",
             clip: new Audio('dingo.wav'),
          },
         george: {
@@ -156,7 +156,7 @@ $(document).ready(function() {
             hitPoints: 130,
             attack: 8,
             acounter:  9,
-            imgSrc: "assets/images/george.jpg",
+            charPort: "assets/images/george.jpg",
             clip: new Audio('ah_hah.wav'),
         },
         jerry: {
@@ -164,7 +164,7 @@ $(document).ready(function() {
             hitPoints: 110,
             attack: 7,
             acounter: 11,
-            imgSrc: "assets/images/jerry.jpg",
+            charPort: "assets/images/jerry.jpg",
             clip: new Audio('dream_hamburger.wav'),
         },
         kramer: {
@@ -172,7 +172,7 @@ $(document).ready(function() {
             hitPoints: 140,
             attack: 8,
             acounter: 8,
-            imgSrc: "assets/images/kramer.jpg",
+            charPort: "assets/images/kramer.jpg",
             clip: new Audio('assman.wav'),
             }
         };
