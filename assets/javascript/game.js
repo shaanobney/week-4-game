@@ -1,6 +1,11 @@
 $(document).ready(function() {
 
+
+
+
+
 //CHARACTER BANK WITH COMBAT STATS.
+
     var characters = {
         elaine: {
         	name: 'Elaine',
@@ -89,7 +94,7 @@ $(document).ready(function() {
     $('#attackbutton').on('click', function(attack) {
         characters[charSel].hp = characters[charSel].hp - characters[opponent].attack;
         characters[opponent].hp -= characters[charSel].attack;
-        characters[charSel].attack += 5;
+        characters[charSel].attack += 3;
         var myCharHp = characters[charSel].hp;
         var opponentCharHp = characters[opponent].hp;
         if (myCharHp < 0) {
