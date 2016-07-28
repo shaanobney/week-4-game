@@ -1,9 +1,5 @@
 $(document).ready(function() {
 
-
-
-
-
 //CHARACTER BANK WITH COMBAT STATS.
 
     var characters = {
@@ -13,7 +9,7 @@ $(document).ready(function() {
             attack: 10,
             acounter: 10,
             imgSrc: "assets/images/elaine.jpg",
-            audio: elaineWav,
+            clip: new Audio('dingo.wav'),
          },
         george: {
             name: 'George',
@@ -21,7 +17,7 @@ $(document).ready(function() {
             attack: 8,
             acounter:  9,
             imgSrc: "assets/images/george.jpg",
-            audio: georgeWav,
+            clip: georgeWav,
         },
         jerry: {
             name: 'Seinfeld',
@@ -29,7 +25,7 @@ $(document).ready(function() {
             attack: 7,
             acounter: 11,
             imgSrc: "assets/images/jerry.jpg",
-            audio: jerryWav,
+            clip: jerryWav,
         },
         kramer: {
             name: 'Kramer',
@@ -37,18 +33,17 @@ $(document).ready(function() {
             attack: 8,
             acounter: 8,
             imgSrc: "assets/images/kramer.jpg",
-            audio: kramerWav,
+            clip: kramerWav,
         }
     };
 
-//VARIABLES.
+    // VARIABLES.
     var charElement = '';
     var charSel = 0;
     var opponent = '';
     var opponentHp = '';
     var myCharToggle = false;
     var opponentToggle = false;
-    var charSel = 0;
     var myHp = 0;
     var myWav = "";
     var enemsBeaten = 0;
@@ -56,6 +51,8 @@ $(document).ready(function() {
     var georgeWav = new Audio('ah_hah.wav');
     var jerryWav = new Audio('dream_hamburger.wav');
     var kramerWav = new Audio('assman.wav');
+    var themeFeld = new Audio('seinfeld.mp3');
+    var lostFeld = new Audio('lostfeld.wav');
 
     // CREATES CHARACTERS.
     function setCond() {
@@ -66,19 +63,22 @@ $(document).ready(function() {
     }
 
     setCond();
-    // STOPS RETRIGGERING OF CHARACTER DIVS, DECIDES BETWEEN CHARACTER AND OPPONENT.
+    // STOPS RETRIGGERING OF CHARACTER DIVS, INPUT DECIDES BETWEEN CHARACTER AND OPPONENT.
     $('body').on('click', '.char', function(run) {
         run.preventDefault();
         run.stopPropagation();
         charElement = $(this).attr('id');
+        $('charselect').css('color', 'red');
+        document.getElementById('charselect').innerHTML = "CLICK BELOW TO CHOOSE VILLAIN";
+        $("#charselect").css("color", "red");
 
         if (opponentToggle === false) {
             charSel = charElement;
             $("#charSel").append($('#' + charSel));
             myHp = characters[charSel].hp;
-            myWav = characters[charSel].audio;
+            myWav = characters[charSel].clip;
             $('#myHpValue').text(characters[charSel].hp);
-            opponentToggle = true
+            opponentToggle = true;
         }
  
         else {
@@ -98,7 +98,7 @@ $(document).ready(function() {
     $('#attackbutton').on('click', function(attack) {
         characters[charSel].hp = characters[charSel].hp - characters[opponent].acounter;
         characters[opponent].hp -= characters[charSel].attack;
-        characters[charSel].attack += (Math.floor(Math.random() * 5) + 2);
+        characters[charSel].attack += (Math.floor(Math.random() * 7) + 4);
 ;
         var myCharHp = characters[charSel].hp;
         var opponentCharHp = characters[opponent].hp;
@@ -114,6 +114,7 @@ $(document).ready(function() {
         if (characters[charSel].hp <= 0) {
             document.getElementById('ticker').innerHTML = "Yada Yada Yada... You Died";
             $("#attackbutton").prop("disabled" , true);
+            lostFeld.play();
             
         }
 
@@ -126,12 +127,13 @@ $(document).ready(function() {
             enemsBeaten++;
             
         if (enemsBeaten < 3) {
-                document.getElementById('sticker').innerHTML = "Pick another Clownshoe";
+                document.getElementById('sticker').innerHTML = "Pick Another Clownshoe";
             };
         }
 
         if (enemsBeaten === 3) {
             document.getElementById('ticker').innerHTML ="It's a Festivus Miracle! (You Win)";
+            themeFeld.play();
         }
 
     })
@@ -141,26 +143,26 @@ $(document).ready(function() {
         elaine: {
             name: 'Elaine',
             hp: 130,
-            attack: 12,
+            attack: 13,
             acounter: 13,
             imgSrc: "assets/images/elaine.jpg",
-            audio: elaineWav,
+            clip: elaineWav,
          },
         george: {
             name: 'George',
             hp: 120,
-            attack: 10,
+            attack: 11,
             acounter:  13,
             imgSrc: "assets/images/george.jpg",
-            audio: georgeWav,
+            clip: georgeWav,
         },
         jerry: {
             name: 'Seinfeld',
             hp: 120,
-            attack: 8,
+            attack: 9,
             acounter: 11,
             imgSrc: "assets/images/jerry.jpg",
-            audio: jerryWav,
+            clip: jerryWav,
         },
         kramer: {
             name: 'Kramer',
@@ -168,7 +170,7 @@ $(document).ready(function() {
             attack: 5,
             acounter: 9,
             imgSrc: "assets/images/kramer.jpg",
-            audio: kramerWav,
+            clip: kramerWav,
             }
         };
 
@@ -183,6 +185,8 @@ $(document).ready(function() {
         $('#myHpValue').empty();
         $('#opponentHpValue').empty();
         $('#ticker').empty();
+        $('#charselect').html("CLICK BELOW TO CHOOSE HERO");
+        $("#charselect").css("color", "black");
         $("#attackbutton").prop("disabled" , false);
         setCond();
     }

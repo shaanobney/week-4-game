@@ -49,6 +49,7 @@ h3 {
 h4 {
   font-family: 'Prompt', sans-serif;
   text-align: left;
+  white-space: nowrap;
 }
 
 img{
@@ -61,6 +62,7 @@ img{
   font-family: 'Montserrat', sans-serif;
   text-shadow: 1px 1px aqua;
   margin: 55px 50px 5px 50px;
+  color: black;
 }
 
 #charSel {
@@ -98,18 +100,18 @@ img{
 
 #sticker {
   width: auto;
-  color: yellow;
-  text-shadow: 2px 2px red;
+  color: red;
+  text-shadow: 2px 2px #fcd720;
   margin: 0px 0px 0px 0px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 #ticker {
   width: auto;
-  color: yellow;
-  text-shadow: 2px 2px red;
+  color: red;
+  text-shadow: 2px 2px #fcd720;
   margin: 0px 0px 0px 0px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 #updater {
