@@ -17,7 +17,7 @@ $(document).ready(function() {
             attack: 8,
             acounter:  9,
             imgSrc: "assets/images/george.jpg",
-            clip: georgeWav,
+            clip: new Audio('ah_hah.wav'),
         },
         jerry: {
             name: 'Seinfeld',
@@ -25,7 +25,7 @@ $(document).ready(function() {
             attack: 7,
             acounter: 11,
             imgSrc: "assets/images/jerry.jpg",
-            clip: jerryWav,
+            clip: new Audio('dream_hamburger.wav'),
         },
         kramer: {
             name: 'Kramer',
@@ -33,13 +33,14 @@ $(document).ready(function() {
             attack: 8,
             acounter: 8,
             imgSrc: "assets/images/kramer.jpg",
-            clip: kramerWav,
+            clip: new Audio('assman.wav'),
         }
     };
 
     // VARIABLES.
     var charElement = '';
     var charSel = 0;
+    var charPick = 0;
     var opponent = '';
     var opponentHp = '';
     var myCharToggle = false;
@@ -68,9 +69,11 @@ $(document).ready(function() {
         run.preventDefault();
         run.stopPropagation();
         charElement = $(this).attr('id');
+        charPick = charElement;
         $('charselect').css('color', 'red');
         document.getElementById('charselect').innerHTML = "CLICK BELOW TO CHOOSE VILLAIN";
         $("#charselect").css({"color": "red", "text-shadow": "1px 1px black"});
+        characters[charPick].clip.play();
 
         if (opponentToggle === false) {
             charSel = charElement;
@@ -142,35 +145,35 @@ $(document).ready(function() {
         characters = {
         elaine: {
             name: 'Elaine',
-            hp: 130,
-            attack: 13,
-            acounter: 13,
+            hp: 120,
+            attack: 10,
+            acounter: 10,
             imgSrc: "assets/images/elaine.jpg",
-            clip: elaineWav,
+            clip: new Audio('dingo.wav'),
          },
         george: {
             name: 'George',
-            hp: 120,
-            attack: 11,
-            acounter:  13,
+            hp: 130,
+            attack: 8,
+            acounter:  9,
             imgSrc: "assets/images/george.jpg",
-            clip: georgeWav,
+            clip: new Audio('ah_hah.wav'),
         },
         jerry: {
             name: 'Seinfeld',
-            hp: 120,
-            attack: 9,
+            hp: 110,
+            attack: 7,
             acounter: 11,
             imgSrc: "assets/images/jerry.jpg",
-            clip: jerryWav,
+            clip: new Audio('dream_hamburger.wav'),
         },
         kramer: {
             name: 'Kramer',
-            hp: 180,
-            attack: 5,
-            acounter: 9,
+            hp: 140,
+            attack: 8,
+            acounter: 8,
             imgSrc: "assets/images/kramer.jpg",
-            clip: kramerWav,
+            clip: new Audio('assman.wav'),
             }
         };
 
