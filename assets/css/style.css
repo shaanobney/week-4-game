@@ -49,6 +49,7 @@ h3 {
 
 h4 {
   font-family: 'Prompt', sans-serif;
+  text-align: left;
 }
 
 img{
@@ -59,13 +60,18 @@ img{
   text-transform: uppercase;
   text-rendering: optimizeLegibility;
   font-family: 'Montserrat', sans-serif;
-  text-shadow: 2px 2px aqua;
+  text-shadow: 1px 1px aqua;
   margin: 5px 50px 5px 50px;
 }
 
 #charSel {
 	margin-left: 70px;
   font-family: 'Bungee Shade', cursive;
+}
+
+#enemy {
+  text-align: center;
+  padding: 5px;
 }
 
 #fight {
@@ -76,6 +82,7 @@ img{
 #myHp {
   font-family: 'Orbitron', sans-serif;
   color: green;
+  text-align: left;
 }
 
 #opponentHp {
@@ -83,21 +90,25 @@ img{
 }
 
 #opponent {
-  margin-left: 150px;
+  margin-left: 115px;
+}
+
+#resetbutton {
+  align
 }
 
 #sticker {
   color: yellow;
   text-shadow: 2px 2px red;
   margin: 0px 50px 0px 50px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 #ticker {
   color: yellow;
   text-shadow: 2px 2px red;
   margin: 0px 50px 0px 50px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .char {
@@ -112,14 +123,21 @@ img{
     font-size: 10px;
 }
 
+.center {
+  text-align: center;
+}
+
 .characters {
 	display: inline-flex;
 	margin-left: 70px;
 }
 
 .selection {
-	color: red;
+	color: aqua;
 	margin-left: 50px;
+  padding: 5px;
+  text-shadow: 2px 2px gray;
+  margin: 5px 50px 5px 50px;
 }
 
 .buttons{
@@ -130,12 +148,23 @@ img{
   margin-left: 700px;
   font-family: 'Slabo 27px', serif;
   position: absolute;
-  bottom: 75px;
+  bottom: 175px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .yada {
-	margin-left: 195px;
+	margin-left: 0px;
   position: absolute;
-  bottom: 75px;
+  bottom: 50px;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.x {
+  color: black;
+  text-shadow: 2px 2px aqua;
+  margin: 5px 50px 5px 50px;
 }
 

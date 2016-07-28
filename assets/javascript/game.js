@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-//OBJECTS. CHARACTER BANK WITH COMBAT STATS.
+//CHARACTER BANK WITH COMBAT STATS.
     var characters = {
         elaine: {
         	name: 'Elaine',
@@ -58,9 +58,9 @@ $(document).ready(function() {
 
     setCond();
     // STOPS RETRIGGERING OF CHARACTER DIVS, DECIDES BETWEEN CHARACTER AND OPPONENT.
-    $('body').on('click', '.char', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+    $('body').on('click', '.char', function(run) {
+        run.preventDefault();
+        run.stopPropagation();
         charElement = $(this).attr('id');
 
         if (opponentToggle === false) {
@@ -114,7 +114,7 @@ $(document).ready(function() {
             enemsBeaten++;
             
         if (enemsBeaten < 3) {
-                document.getElementById('sticker').innerHTML = "Pick another Schmohawk";
+                document.getElementById('sticker').innerHTML = "Pick another Clownshoe";
             };
         }
 
@@ -135,7 +135,7 @@ $(document).ready(function() {
         },
         george: {
             hp: 100,
-            attack: 8,
+            attack: 15,
             name: 'George',
             imgSrc: "assets/images/george.jpg",
             audio: georgeWav,
