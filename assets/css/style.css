@@ -118,6 +118,10 @@ img{
   margin-top: 75px;
 }
 
+#yoChar {
+  text-shadow: 2px 2px black;
+}
+
 .char {
   height: 130px;
   width: 150px;
@@ -176,11 +180,6 @@ img{
   display: inline-block;
   text-align: center;
 }
-
-#yoChar {
-  text-shadow: 2px 2px black;
-}
-
 
 .x {
   color: black;

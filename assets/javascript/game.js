@@ -5,7 +5,7 @@ $(document).ready(function() {
     var characters = {
         elaine: {
             name: 'Elaine',
-            hp: 120,
+            hitPoints: 120,
             attack: 10,
             acounter: 10,
             imgSrc: "assets/images/elaine.jpg",
@@ -13,7 +13,7 @@ $(document).ready(function() {
          },
         george: {
             name: 'George',
-            hp: 130,
+            hitPoints: 130,
             attack: 8,
             acounter:  9,
             imgSrc: "assets/images/george.jpg",
@@ -21,7 +21,7 @@ $(document).ready(function() {
         },
         jerry: {
             name: 'Seinfeld',
-            hp: 110,
+            hitPoints: 110,
             attack: 7,
             acounter: 11,
             imgSrc: "assets/images/jerry.jpg",
@@ -29,7 +29,7 @@ $(document).ready(function() {
         },
         kramer: {
             name: 'Kramer',
-            hp: 140,
+            hitPoints: 140,
             attack: 8,
             acounter: 8,
             imgSrc: "assets/images/kramer.jpg",
@@ -64,7 +64,7 @@ $(document).ready(function() {
     }
 
     setCond();
-    // STOPS RETRIGGERING OF CHARACTER DIVS, INPUT DECIDES BETWEEN CHARACTER AND OPPONENT.
+    // STOPS RETRIGGERING OF CHARACTER DIVS, INPUT DECIDES BETWEEN CHARACTER AND OPPONENT, PLAYS AUDIO, CHANGES HEADING STYLES.
     $('body').on('click', '.char', function(run) {
         run.preventDefault();
         run.stopPropagation();
@@ -78,9 +78,9 @@ $(document).ready(function() {
         if (opponentToggle === false) {
             charSel = charElement;
             $("#charSel").append($('#' + charSel));
-            myHp = characters[charSel].hp;
             myWav = characters[charSel].clip;
-            $('#myHpValue').text(characters[charSel].hp);
+            myHp = characters[charSel].hitPoints;
+            $('#myHpValue').text(characters[charSel].hitPoints);
             opponentToggle = true;
         }
  
@@ -88,8 +88,8 @@ $(document).ready(function() {
             if (opponent === '') {
                 opponent = charElement;
                 $("#opponent").append($('#' + opponent));
-                opponentHp = characters[opponent].hp;
-                $('#opponentHpValue').text(characters[opponent].hp);
+                opponentHp = characters[opponent].hitPoints;
+                $('#opponentHpValue').text(characters[opponent].hitPoints);
                 $('#ticker').empty();
                 $('#sticker').empty();
             }
@@ -99,12 +99,12 @@ $(document).ready(function() {
  //FIGHT FUNCTION. OPPONENET ACOUNTER IS SUBTRACTED FROM CHARACTER'S HP, CHAR ATK SUBTRACTED FROM ENEMY HP. CHAR'S ATTACK POWER
  //AT A RANDOM INTERVAL BETWEEN 1 AND 6 ON EACH SUBSEQUENTLY SUCCESSFUL ATTACK. WHEN ENEMY HP RUNS OUT, YOU WIN ROUND. YOUR HP IS ZERO, YOU LOSE.
     $('#attackbutton').on('click', function(attack) {
-        characters[charSel].hp = characters[charSel].hp - characters[opponent].acounter;
-        characters[opponent].hp -= characters[charSel].attack;
+        characters[charSel].hitPoints = characters[charSel].hitPoints - characters[opponent].acounter;
+        characters[opponent].hitPoints -= characters[charSel].attack;
         characters[charSel].attack += (Math.floor(Math.random() * 7) + 4);
 ;
-        var myCharHp = characters[charSel].hp;
-        var opponentCharHp = characters[opponent].hp;
+        var myCharHp = characters[charSel].hitPoints;
+        var opponentCharHp = characters[opponent].hitPoints;
         if (myCharHp <= 0) {
             myCharHp = 0;
         }
@@ -114,14 +114,14 @@ $(document).ready(function() {
         $('#myHpValue').text(myCharHp);
         $('#opponentHpValue').text(opponentCharHp);
 
-        if (characters[charSel].hp <= 0) {
+        if (characters[charSel].hitPoints <= 0) {
             document.getElementById('ticker').innerHTML = "Yada Yada Yada... You Died";
             $("#attackbutton").prop("disabled" , true);
             lostFeld.play();
             
         }
 
-        if (characters[opponent].hp <= 0) {
+        if (characters[opponent].hitPoints <= 0) {
             charElement = '';
             $('#opponent').empty();
             document.getElementById('ticker').innerHTML = "You Won This Round";
@@ -145,7 +145,7 @@ $(document).ready(function() {
         characters = {
         elaine: {
             name: 'Elaine',
-            hp: 120,
+            hitPoints: 120,
             attack: 10,
             acounter: 10,
             imgSrc: "assets/images/elaine.jpg",
@@ -153,7 +153,7 @@ $(document).ready(function() {
          },
         george: {
             name: 'George',
-            hp: 130,
+            hitPoints: 130,
             attack: 8,
             acounter:  9,
             imgSrc: "assets/images/george.jpg",
@@ -161,7 +161,7 @@ $(document).ready(function() {
         },
         jerry: {
             name: 'Seinfeld',
-            hp: 110,
+            hitPoints: 110,
             attack: 7,
             acounter: 11,
             imgSrc: "assets/images/jerry.jpg",
@@ -169,7 +169,7 @@ $(document).ready(function() {
         },
         kramer: {
             name: 'Kramer',
-            hp: 140,
+            hitPoints: 140,
             attack: 8,
             acounter: 8,
             imgSrc: "assets/images/kramer.jpg",
@@ -183,10 +183,10 @@ $(document).ready(function() {
         charSel = '';
         enemsBeaten = 0;
         $('.characters').empty();
-        $('#charSel').empty();
-        $('#opponent').empty();
         $('#myHpValue').empty();
         $('#opponentHpValue').empty();
+        $('#charSel').empty();
+        $('#opponent').empty();
         $('#ticker').empty();
         $('#charselect').html("CLICK BELOW TO CHOOSE HERO");
         $("#charselect").css({"color": "black", "text-shadow": "1px 1px aqua"});
